@@ -1,0 +1,10 @@
+# Python stuff
+*.pyc
+build/
+
+# Hidden directories
+.*/
+
+# Example output
+example/*1.py
+example/*1.ipynb

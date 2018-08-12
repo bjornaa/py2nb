@@ -1,0 +1,27 @@
+#!/usr/bin/env/python
+
+import argparse
+import py2nb
+
+# ---------------------
+# Parse command line
+# ---------------------
+
+parser = argparse.ArgumentParser(
+    description='Convert from Jupyter Notebook to python')
+parser.add_argument('notebook_file',
+                    help='name of the jupyter notebook input file')
+parser.add_argument('python_file', nargs='?',
+                    help='name of python output file')
+args = parser.parse_args()
+
+# ------------
+# File names
+# ------------
+
+nbfile = args.notebook_file
+pyfile = args.python_file
+if pyfile is None:
+    pyfile = nbfile.replace('.ipynb', '.py')
+
+py2nb.nb2py(nbfile, pyfile)
